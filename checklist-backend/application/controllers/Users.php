@@ -929,7 +929,7 @@ function jiradata(){
     $ticket_no = !empty($requestData->ticketno) ? $requestData->ticketno:'';
     $userid = $requestData->userid;
 	$jiraUrl="https://jira.xpaas.lenovo.com/rest/api/latest/issue/$ticket_no";
-
+    $apiToken="NDEzOTkzNjQ1MzE2OulPzFiENidAjIAMIXpuRdV3KcRf";
     $userId='uk2';
 
 	$jql = 'fields=timetracking';
@@ -1367,3 +1367,4 @@ foreach (json_decode(json_encode($body)) as $row=>$value) {
  
 
 }
+

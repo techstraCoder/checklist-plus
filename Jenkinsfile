@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        FRONTEND_IMAGE = 'localhost:5000/checklistplus-app:v1'
-        BACKEND_IMAGE  = 'localhost:5000/checklistplus-php:v1'
+        FRONTEND_IMAGE = '192.168.0.103:5000/checklistplus-app:v1'
+        BACKEND_IMAGE  = '192.168.0.103:5000/checklistplus-php:v1'
         STACK_NAME     = 'checklistreact'
     }
 
@@ -55,6 +55,7 @@ pipeline {
         }
     }
 }
+
 
 
 

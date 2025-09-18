@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        FRONTEND_IMAGE = 'localhost:5000/checklistplus-app:v1'
-        BACKEND_IMAGE  = 'localhost:5000/checklistplus-php:v1'
+        FRONTEND_IMAGE = '127.0.0.1:5000/checklistplus-app:v1'
+        BACKEND_IMAGE  = '127.0.0.1:5000/checklistplus-php:v1'
         STACK_NAME     = 'checklistreact'
     }
 
@@ -26,6 +26,7 @@ pipeline {
                 script {
                     // Build and push frontend Docker image
                     dir('frontend') {
+                        curl http://127.0.0.1:5000/v2/_catalog
                         sh "docker build -t ${FRONTEND_IMAGE} ."
                         sh "docker push ${FRONTEND_IMAGE}"
                     }
@@ -55,6 +56,7 @@ pipeline {
         }
     }
 }
+
 
 
 

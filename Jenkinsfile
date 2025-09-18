@@ -26,7 +26,6 @@ pipeline {
                 script {
                     // Build and push frontend Docker image
                     dir('frontend') {
-                        sh 'npm install && npm run build'
                         sh "docker build -t ${FRONTEND_IMAGE} ."
                         sh "docker push ${FRONTEND_IMAGE}"
                     }
@@ -56,6 +55,7 @@ pipeline {
         }
     }
 }
+
 
 
 

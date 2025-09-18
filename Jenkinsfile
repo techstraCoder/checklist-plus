@@ -11,6 +11,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 script {
+                    sh 'node --version'
                     // Checkout both frontend and backend
                     dir('frontend') { checkout scm }
                     dir('checklist-backend') { checkout scm }
@@ -56,3 +57,4 @@ pipeline {
         }
     }
 }
+

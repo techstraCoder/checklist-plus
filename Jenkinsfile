@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-       nodejs 'Node_js_19'  // ensure this matches the "Name" in Global Tool Config
-    }
     environment {
         FRONTEND_IMAGE = 'localhost:5000/checklistplus-app:v1'
         BACKEND_IMAGE  = 'localhost:5000/checklistplus-php:v1'
@@ -59,6 +56,7 @@ pipeline {
         }
     }
 }
+
 
 
 

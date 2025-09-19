@@ -32,7 +32,6 @@ pipeline {
 
                     // Deploy frontend stack
                     sh "docker service update --image ${FRONTEND_IMAGE} --force ${STACK_NAME}_checklistplus-app"
-                    sh "docker restart registry"
                 }
             }
         }
@@ -51,12 +50,12 @@ pipeline {
 
                     // Deploy backend stack
                     sh "docker service update --image ${BACKEND_IMAGE} --force ${STACK_NAME}_checklistplus-php"
-                    sh "docker restart registry"
                 }
             }
         }
     }
 }
+
 
 
 

@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        FRONTEND_IMAGE = '192.168.0.103:5000/checklistplus-app:v${BUILD_NUMBER}'
-        BACKEND_IMAGE  = '192.168.0.103:5000/checklistplus-php:v${BUILD_NUMBER}'
+        FRONTEND_IMAGE = '192.168.0.103:5000/checklistplus-app:v1'
+        BACKEND_IMAGE  = '192.168.0.103:5000/checklistplus-php:v1'
         STACK_NAME     = 'checklistreact'
     }
 
@@ -31,7 +31,7 @@ pipeline {
                     }
 
                     // Deploy frontend stack
-                    sh "docker stack deploy -c docker-compose.yml ${STACK_NAME}"
+                    sh "docker service update --image ${FRONTEND_IMAGE} --force ${STACK_NAME}_checklistplus-app"
                 }
             }
         }
@@ -49,12 +49,13 @@ pipeline {
                     }
 
                     // Deploy backend stack
-                    sh "docker stack deploy -c docker-compose.yml ${STACK_NAME}"
+                    sh "docker service update --image ${BACKEND_IMAGE} --force ${STACK_NAME}_checklistplus-php"
                 }
             }
         }
     }
 }
+
 
 
 

@@ -6,6 +6,11 @@ pipeline {
         STACK_NAME     = 'checklistreact'
     }
     stages {
+       stage('Clean workspace') {
+          steps {
+            deleteDir()
+          }
+        }
         stage('Checkout') {
             steps {
                 script {
@@ -28,6 +33,7 @@ pipeline {
         }
     }
 }
+
 
 
 

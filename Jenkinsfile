@@ -23,12 +23,13 @@ pipeline {
                 script {
                     // Build and push frontend Docker image
                     dir('frontend') {
-                        sh "npm run build"
-                        sh "cp -r build/ /usr/share/nginx/html/checklistplus/"
+                        sh "whoami"
+                        sh "id"
                     }
                 }
             }
         }
     }
 }
+
 

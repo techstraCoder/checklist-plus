@@ -6,24 +6,10 @@ pipeline {
         STACK_NAME     = 'checklistreact'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                script {
-                    dir('frontend') { checkout scm }
-                    dir('checklist-backend') { checkout scm }
-                }
-            }
-        }
-        stage('Build and Deploy Frontend') {
-            steps {
-                script {
-                    // Build and push frontend Docker image
-                    dir('frontend') {
-                        sh 'npm install'
-                        sh 'npm run build'
-                    }
-                }
-            }
+       stage('Checkout') {
+          steps {
+            checkout scm
+          }
         }
     }
 }

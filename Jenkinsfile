@@ -23,7 +23,6 @@ pipeline {
                 script {
                     // Build and push frontend Docker image
                     dir('frontend') {
-                        sh "npm install"
                         sh "npm run build"
                         sh "cp -r build/ /usr/share/nginx/html/checklistplus/"
                     }
@@ -32,3 +31,4 @@ pipeline {
         }
     }
 }
+

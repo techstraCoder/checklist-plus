@@ -16,9 +16,6 @@ pipeline {
         }
 
         stage('Build and Deploy Frontend') {
-            when {
-                changeset "**/frontend/**"
-            }
             steps {
                 script {
                     // Build and push frontend Docker image
@@ -31,5 +28,6 @@ pipeline {
         }
     }
 }
+
 
 

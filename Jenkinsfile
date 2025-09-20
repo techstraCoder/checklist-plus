@@ -21,10 +21,12 @@ pipeline {
                     }
 
                     // Deploy frontend stack
-                    sh 'cp -r frontend/dist/* /usr/share/nginx/html/checklistplus'
+                   sh 'chmod -R 755 /usr/share/nginx/html/checklistplus' 
+                   sh 'cp -r frontend/build/* /usr/share/nginx/html/checklistplus'
                 }
             }
         }
     }
 }
+
 

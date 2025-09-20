@@ -20,14 +20,15 @@ pipeline {
                 script {
                     // Build and push frontend Docker image
                     dir('frontend') {
-                        sh "whoami"
-                        sh "id"
+                        sh 'npm install'
+                        sh 'npm run build'
                     }
                 }
             }
         }
     }
 }
+
 
 
 

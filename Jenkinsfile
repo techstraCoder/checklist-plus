@@ -19,14 +19,13 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-
                     // Deploy frontend stack
-                   sh 'chmod -R 755 /usr/share/nginx/html/checklistplus' 
-                   sh 'cp -r frontend/build/* /usr/share/nginx/html/checklistplus'
+                   sh "docker cp frontend/build/. checklistreact_checklistplus-app.1.muvxk4tg0ea2ti0b17e63rkyx:/usr/share/nginx/html/checklistplus"
                 }
             }
         }
     }
 }
+
 
 

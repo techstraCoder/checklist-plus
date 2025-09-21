@@ -20,12 +20,13 @@ pipeline {
                         sh "npm run build"
                     }
                     // Deploy frontend stack
-                   sh "docker cp frontend/build/. checklistreact_checklistplus-app.1.muvxk4tg0ea2ti0b17e63rkyx:/usr/share/nginx/html/checklistplus"
+                   sh "docker cp frontend/build/. 760e6e757d32:/usr/share/nginx/html/checklistplus"
                 }
             }
         }
     }
 }
+
 
 
 

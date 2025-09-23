@@ -6,11 +6,7 @@ services:
      ports:
       - "3004:80"
      volumes:
-<<<<<<< HEAD
       - ./nginx_data:/usr/share/nginx/html/checklistplus
-=======
-       - ./checklist-nginx-data:usr/share/nginx/html/checkplist
->>>>>>> 89681093b0c90b997fbe89f4dac344eb5061c90d
      depends_on:
       - checklistplus-php
       - checklistplus-mysql

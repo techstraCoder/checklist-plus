@@ -102,7 +102,7 @@ function Login() {
                         <Form className="Loginform" onSubmit={loginformdetails} ref={loginform}>
                             <Row className="fw-bold border-bottom border-black mb-2">
                                 <Col md={12}>
-                                    <h3><b>Checklist+ Login</b></h3>
+                                    <h3><b>ChecklistPlus Coder</b></h3>
                                 </Col>
                             </Row>
                             <Row className="d-flex justify-content-center mt-1 mb-2 col-sm-11 col-md-11 col-lg-11">
@@ -158,7 +158,7 @@ function Login() {
                                 <Col lg={4} className="mt-1 text-credits-small">
                                     <div className="text-sm-start">Arpitha BM (Project Manager)</div>
                                     <div className="text-sm-start">Usharani K. (Lead Developer)</div>
-                                    <div className="text-sm-start">Ayon Banerjee (Sr.Developer) </div>
+                                    <div className="text-sm-start">Ayon (Full Stack Developer) </div>
                                 </Col>
                                 <Col lg={4} className="mt-1 text-credits-small">
                                     <div className="text-sm-start">Nikhil Nath (Developer)</div>

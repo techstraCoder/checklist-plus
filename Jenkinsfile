@@ -19,13 +19,14 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh "cp frontend/build/. /workspace/react-docker/nginx_data"
+                  sh "cp -r frontend/build/. /workspace/react-docker/nginx_data"
                   sh "chown -R 1000:1000 /workspace/react-docker/nginx_data"  
                 }
             }
         }
     }
 }
+
 
 
 

@@ -11,6 +11,8 @@
 # production
 /build
 
+# git mysql data
+/mysql_data 
 # misc
 .DS_Store
 .env.local

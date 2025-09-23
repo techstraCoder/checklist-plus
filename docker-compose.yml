@@ -6,7 +6,7 @@ services:
      ports:
       - "3004:80"
      volumes:
-      - ./nginx_data:/usr/share/nginx/html/checklistplus
+      - ./nginx_data:/usr/share/nginx/html/checklistplus/
      depends_on:
       - checklistplus-php
       - checklistplus-mysql
@@ -31,7 +31,7 @@ services:
         - ./mysql_custom/my.cnf:/etc/my.cnf
         - ./mysql_data/:/var/lib/mysql
       deploy:
-        replicas: 2
+        replicas: 1
         restart_policy:
           condition: on-failure   
   checklistplus-php:
@@ -46,7 +46,7 @@ services:
        depends_on:
         - checklistplus-mysql
        deploy:
-        replicas: 2
+        replicas: 1
         restart_policy:
           condition: on-failure      
 networks:

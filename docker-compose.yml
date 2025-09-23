@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   checklistplus-app:
-     image: 192.168.0.103:5000/checklistplus-app
+     image: 192.168.0.103:5000/checklistplus-app:v1
      ports:
       - "3004:80"
      volumes:
@@ -17,7 +17,7 @@ services:
       restart_policy:
         condition: on-failure 
   checklistplus-mysql:
-      image: 192.168.0.103:5000/checklistplus-mysql
+      image: 192.168.0.103:5000/checklistplus-mysql:v1
       environment:
         - MYSQL_ROOT_PASSWORD=db
         - MYSQL_DATABASE=checklistplus
@@ -35,7 +35,7 @@ services:
         restart_policy:
           condition: on-failure   
   checklistplus-php:
-       image: 192.168.0.103:5000/checklistplus-php
+       image: 192.168.0.103:5000/checklistplus-php:v1
        networks:
         - my-checklist-plus-network
        ports:

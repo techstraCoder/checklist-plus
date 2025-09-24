@@ -6,7 +6,7 @@ services:
      ports:
       - "3004:80"
      volumes:
-      - ./nginx_data:/usr/share/nginx/html/checklistplus/
+      - /var/jenkins_home/workspace/react-docker/nginx_data:/usr/share/nginx/html/checklistplus/
      depends_on:
       - checklistplus-php
       - checklistplus-mysql

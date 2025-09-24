@@ -19,18 +19,14 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh "chmod -R 755 ${WORKSPACE}/react-docker/nginx_data"  
-                  sh "cp -r frontend/build/. ${WORKSPACE}/react-docker/nginx_data/"
-                  sh "chown -R 1000:1000 ${WORKSPACE}/react-docker/nginx_data"  
+                   sh "chmod -R 755 ${WORKSPACE}/nginx_data"  
+                   sh "cp -r frontend/build/. ${WORKSPACE}/nginx_data/"
+                   sh "chown -R 1000:1000 ${WORKSPACE}/nginx_data"  
                 }
             }
         }
     }
 }
-
-
-
-
 
 
 

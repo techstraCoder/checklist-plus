@@ -4,3 +4,5 @@ Dockerfile
 .git
 *.md
 *.log
+# git mysql data
+/mysql_data 

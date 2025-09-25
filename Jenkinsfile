@@ -25,15 +25,17 @@ pipeline {
        stage('Deploy Frontend') {
             steps {
                 script {
-                  sh "chmod -R 755 /var/lib/docker/volumes/checklistreact_nginx_data_html/_data"
-                  sh "chown -R jenkins:jenkins /var/lib/docker/volumes/checklistreact_nginx_data_html/_data"
-                  sh "ls -ld /var/lib/docker/volumes/checklistreact_nginx_data_html/_data"  
-                  sh "cp -r ${env.WORKSPACE}/frontend/build/. /var/lib/docker/volumes/checklistreact_nginx_data_html/_data/"
-                  sh "chown -R 1000:1000 /var/lib/docker/volumes/checklistreact_nginx_data_html/_data" 
+                   // Clean old files
+                      sh 'rm -rf nginx_data/*'
+                      // Copy build output into host folder
+                      sh "cp -r frontend/build/. nginx_data/"
+                      // Set permissions so nginx in container can read
+                      sh 'chmod -R 755 nginx_data'
                 }
             }
         }
     }
 }
+
 
 

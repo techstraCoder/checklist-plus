@@ -4,8 +4,6 @@ services:
      image: 192.168.0.103:5000/checklistplus-app:v1
      ports:
       - "3004:80"
-     volumes:
-      - ./frontend/build:/usr/share/nginx/html/checklistplus
      depends_on:
       - checklistplus-php
       - checklistplus-mysql

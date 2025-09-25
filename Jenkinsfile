@@ -27,14 +27,12 @@ pipeline {
        stage('Build and Deploy Backend') {
             steps {
                 script {
-                    // Deploy Backend
-                    dir('checklist-backend') {
-                      def CONTAINER_BACKEND = sh(script: "docker ps -q -f name=checklistreact_checklistplus-php", returnStdout: true).trim() 
-                      sh "docker cp ./checklist-backend/. ${CONTAINER_BACKEND}:/var/www/html/checklistplus/api" 
-                    }        
+                    def CONTAINER_BACKEND = sh(script: "docker ps -q -f name=checklistreact_checklistplus-php", returnStdout: true).trim() 
+                    sh "docker cp ./checklist-backend/. ${CONTAINER_BACKEND}:/var/www/html/checklistplus/api"         
                 }
             }
         }  
     }
 }
+
 

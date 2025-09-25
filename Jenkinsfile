@@ -25,6 +25,9 @@ pipeline {
        stage('Deploy Frontend') {
             steps {
                 script {
+                  sh "chmod -R 755 /var/lib/docker/volumes/checklistreact_nginx_data_html/_data"
+                  sh "chown -R jenkins:jenkins /var/lib/docker/volumes/checklistreact_nginx_data_html/_data"
+                  sh "ls -ld /var/lib/docker/volumes/checklistreact_nginx_data_html/_data"  
                   sh "cp -r ${env.WORKSPACE}/frontend/build/. /var/lib/docker/volumes/checklistreact_nginx_data_html/_data/"
                   sh "chown -R 1000:1000 /var/lib/docker/volumes/checklistreact_nginx_data_html/_data" 
                 }
@@ -32,4 +35,5 @@ pipeline {
         }
     }
 }
+
 

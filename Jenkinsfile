@@ -3,8 +3,11 @@ pipeline {
   environment {
     CI            = 'false'
     SERVICE_NAME  = "checklistreact_checklistplus-app"
-    HOST_PATH     = "/var/jenkins_home/workspace/react-docker/frontend/build"
+    // Use a host path outside the source tree — not the same as the build directory
+    HOST_PATH     = "/var/jenkins_home/nginx_data/checklistplus"
+    BUILD_OUTPUT  = "frontend/build"
     CONTAINER_PATH = "/usr/share/nginx/html/checklistplus"
+    // Optionally you can define DOCKER_HOST or context if your Swarm manager is remote
   }
   stages {
     stage('Checkout') {
@@ -25,19 +28,21 @@ pipeline {
       steps {
         script {
           echo "Deploying frontend to service ${SERVICE_NAME}"
-          // Optional: check Docker is available
           sh 'docker --version'
 
-          // Option A: If your service uses a mounting from host
-          // Make sure the host path is updated before restarting
-          sh "rm -rf ${HOST_PATH}/* || true"
-          sh "cp -r frontend/build/. ${CONTAINER_PATH}/"
+          // Create the host directory if needed
+          sh "mkdir -p ${HOST_PATH}"
+          // Clean the existing files
+          sh "rm -rf ${HOST_PATH}/*"
+          // Copy the build output into the host directory
+          sh "cp -r ${BUILD_OUTPUT}/. ${HOST_PATH}/"
+          // Fix permissions
           sh "chmod -R 755 ${HOST_PATH}"
 
-          // Force service update
+          // Then force service update (assuming service is mounting HOST_PATH → CONTAINER_PATH)
           sh "docker service update --force ${SERVICE_NAME}"
 
-          // Optional: show status
+          // Show status
           sh "docker service ls | grep ${SERVICE_NAME}"
           sh "docker service ps ${SERVICE_NAME}"
         }
@@ -46,9 +51,7 @@ pipeline {
   }
   post {
     failure {
-      echo "Deployment failed; you can inspect logs or rollback."
+      echo "Deployment failed; inspect logs or rollback."
     }
   }
 }
-
-

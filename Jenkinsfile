@@ -27,12 +27,13 @@ pipeline {
                    // Clean old files
                       echo "workspace is ${env.WORKSPACE}"
                       sh 'chmod -R 755 /var/jenkins_home/workspace/react-docker/nginx_data'
-                      sh "cp -r /frontend/build/. /var/jenkins_home/workspace/react-docker/nginx_data/"  
+                      sh "cp -r /var/jenkins_home/workspace/react-docker/frontend/build/. /var/jenkins_home/workspace/react-docker/nginx_data/"  
                 }
             }
         }
     }
 }
+
 
 
 

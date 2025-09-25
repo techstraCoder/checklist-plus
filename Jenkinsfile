@@ -31,7 +31,7 @@ pipeline {
           // Option A: If your service uses a mounting from host
           // Make sure the host path is updated before restarting
           sh "rm -rf ${HOST_PATH}/* || true"
-          sh "cp -r frontend/build/. ${CONTAINER_NAME}/"
+          sh "cp -r frontend/build/. ${CONTAINER_PATH}/"
           sh "chmod -R 755 ${HOST_PATH}"
 
           // Force service update
@@ -50,4 +50,5 @@ pipeline {
     }
   }
 }
+
 

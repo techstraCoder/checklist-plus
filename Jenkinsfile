@@ -25,18 +25,11 @@ pipeline {
        stage('Deploy Frontend') {
             steps {
                 script {
-                    // Build and push frontend Docker image
-                    echo "Workspace is ${env.WORKSPACE}"
-                    def cwd = pwd()
-                    echo "Current Working : ${cwd}"
-                    sh "ls -la /usr/share/nginx/html/checklistplus"
-                    sh "chown -R 1000:1000 /usr/share/nginx/html/checklistplus"  
-                    sh "mkdir -p ${env.WORKSPACE}/nginx_data_html"  
-                    sh "ls -la ${env.WORKSPACE}"
-                    sh "cp -r ${env.WORKSPACE}/frontend/build/. ${env.WORKSPACE}/nginx_data_html/"
-                    sh "chown -R 1000:1000 ${env.WORKSPACE}/nginx_data_html"  
+                  sh "cp -r ${env.WORKSPACE}/frontend/build/. /var/lib/docker/volumes/checklistreact_nginx_data_html/_data/"
+                  sh "chown -R 1000:1000 /var/lib/docker/volumes/checklistreact_nginx_data_html/_data" 
                 }
             }
         }
     }
 }
+

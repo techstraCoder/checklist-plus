@@ -1,13 +1,14 @@
 version: '3.8'
-volumes:
-  nginx_data_html:
 services:
   checklistplus-app:
      image: 192.168.0.103:5000/checklistplus-app:v1
      ports:
       - "3004:80"
      volumes:
-      - nginx_data_html:/usr/share/nginx/html/checklistplus/
+      - type: bind
+      - source: ./nginx_data   # host directory
+      - target: /usr/share/nginx/html/checklistplus
+      - read_only: false   # or `true
      depends_on:
       - checklistplus-php
       - checklistplus-mysql

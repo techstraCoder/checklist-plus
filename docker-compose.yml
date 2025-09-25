@@ -5,10 +5,7 @@ services:
      ports:
       - "3004:80"
      volumes:
-      - type: bind
-        source: ./nginx_data   # host directory
-        target: /usr/share/nginx/html/checklistplus
-        read_only: false   # or `true
+      - ./frontend/build:/usr/share/nginx/html/checklistplus
      depends_on:
       - checklistplus-php
       - checklistplus-mysql

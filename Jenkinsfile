@@ -4,9 +4,7 @@ pipeline {
     CI            = 'false'
     SERVICE_NAME  = "checklistreact_checklistplus-app"
     HOST_PATH     = "/var/jenkins_home/workspace/react-docker/frontend/build"
-    CONTAINER_PATH = "/usr/share/nginx/html"
-    // optional: set DOCKER_HOST if Swarm is remote
-    // DOCKER_HOST = "tcp://swarm-manager:2376"
+    CONTAINER_PATH = "/usr/share/nginx/html/checklistplus"
   }
   stages {
     stage('Checkout') {
@@ -33,7 +31,7 @@ pipeline {
           // Option A: If your service uses a mounting from host
           // Make sure the host path is updated before restarting
           sh "rm -rf ${HOST_PATH}/* || true"
-          sh "cp -r frontend/build/. ${HOST_PATH}/"
+          sh "cp -r frontend/build/. ${CONTAINER_NAME}/"
           sh "chmod -R 755 ${HOST_PATH}"
 
           // Force service update
@@ -52,3 +50,4 @@ pipeline {
     }
   }
 }
+

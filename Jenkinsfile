@@ -31,11 +31,13 @@ pipeline {
                       sh "cp -r frontend/build/. nginx_data/"
                       // Set permissions so nginx in container can read
                       sh 'chmod -R 755 nginx_data'
+                      sh "docker service update --force checklistreact_checklistplus-app"
                 }
             }
         }
     }
 }
+
 
 
 

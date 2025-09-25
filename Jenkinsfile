@@ -16,7 +16,6 @@ pipeline {
                     // Build and push frontend Docker image
                     dir('frontend') {
                         sh 'ls -la'
-                        sh "npm install"
                         sh "npm run build"
                     }
                 }
@@ -29,14 +28,18 @@ pipeline {
                       echo "workspace is ${env.WORKSPACE}"
                       sh 'rm -rf ${env.WORKSPACE}/nginx_data/*'
                       // Copy build output into host folder
-                      sh "cp -r ${env.WORKSPACE}/frontend/build/. ${env.WORKSPACE}/nginx_data/"
-                      // Set permissions so nginx in container can read
-                      sh 'chmod -R 755 ${env.WORKSPACE}/nginx_data'
+                       dir('frontend'){
+                        sh "cp -r /frontend/build/. ${env.WORKSPACE}/nginx_data/"
+                       // Set permissions so nginx in container can read
+                        sh 'chmod -R 755 ${env.WORKSPACE}/nginx_data'
+                       }
+                     
                 }
             }
         }
     }
 }
+
 
 
 

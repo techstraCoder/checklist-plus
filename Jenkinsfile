@@ -26,20 +26,14 @@ pipeline {
                 script {
                    // Clean old files
                       echo "workspace is ${env.WORKSPACE}"
-                      sh 'rm -rf ${env.WORKSPACE}/nginx_data/*'
-                      // Copy build output into host folder
-                       dir('frontend'){
-                        echo " ${env.WORKSPACE}"   
-                        sh "cp -r /frontend/build/. ${env.WORKSPACE}/nginx_data/"
-                       // Set permissions so nginx in container can read
-                        sh 'chmod -R 755 ${env.WORKSPACE}/nginx_data'
-                       }
-                     
+                      sh 'chmod -R 755 ${env.WORKSPACE}/nginx_data'
+                      sh "cp -r /frontend/build/. ${env.WORKSPACE}/nginx_data/"  
                 }
             }
         }
     }
 }
+
 
 
 

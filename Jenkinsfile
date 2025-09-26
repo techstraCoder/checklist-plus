@@ -19,15 +19,21 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                   sh "chmod -R 755 ${WORKSPACE}/nginx_data"  
-                   sh "cp -r frontend/build/. ${WORKSPACE}/nginx_data/"
-                   sh "chown -R 1000:1000 ${WORKSPACE}/nginx_data"  
+                  def CONTAINER_FRONTEND = sh(script: "docker ps -q -f name=checklistreact_checklistplus-app", returnStdout: true).trim() 
+                  sh "docker cp frontend/build/. ${CONTAINER_FRONTEND}:/usr/share/nginx/html/checklistplus"
                 }
             }
         }
+       stage('Build and Deploy Backend') {
+            steps {
+                script {
+                    // Deploy Backend
+                    dir('checklist-backend') {
+                      def CONTAINER_BACKEND = sh(script: "docker ps -q -f name=checklistreact_checklistplus-php", returnStdout: true).trim() 
+                      sh "docker cp ./checklist-backend/. ${CONTAINER_BACKEND}:/var/www/html/checklistplus/api" 
+                    }        
+                }
+            }
+        }  
     }
 }
-
-
-
-

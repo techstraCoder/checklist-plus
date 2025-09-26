@@ -19,7 +19,7 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                    echo ${env.WORKSPACE}
+                    echo "Workspace: ${env.WORKSPACE}"
                     sh "ls -l ${env.WORKSPACE}"
                     sh 'cp -r .frontend/build/* ./nginx_data/html'
                 }
@@ -27,6 +27,7 @@ pipeline {
         } 
     }
 }
+
 
 
 

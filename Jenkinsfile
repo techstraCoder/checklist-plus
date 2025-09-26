@@ -19,6 +19,7 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
+<<<<<<< HEAD
                   def CONTAINER_FRONTEND = sh(script: "docker ps -q -f name=checklistreact_checklistplus-app", returnStdout: true).trim() 
                   sh "docker cp frontend/build/. ${CONTAINER_FRONTEND}:/usr/share/nginx/html/checklistplus"
                 }
@@ -37,3 +38,13 @@ pipeline {
         }  
     }
 }
+=======
+                }
+            }
+        } 
+    }
+}
+
+
+
+>>>>>>> e665602e9a9a8c9874fc178b4853fcf69c424dc1

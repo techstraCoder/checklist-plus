@@ -21,10 +21,12 @@ pipeline {
                     }
                     echo ${env.WORKSPACE}
                     sh "ls -l ${env.WORKSPACE}"
+                    sh 'cp -r .frontend/build/* ./nginx_data/html'
                 }
             }
         } 
     }
 }
+
 
 

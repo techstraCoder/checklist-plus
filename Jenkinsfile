@@ -19,8 +19,14 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
+<<<<<<< HEAD
                    sh 'cp -r ./frontend/build/* .checklist-data/html'
                    sh 'chown -R 1000:1000 .checklist-data/html' 
+=======
+                    echo "Workspace: ${env.WORKSPACE}"
+                    sh "ls -l ${env.WORKSPACE}"
+                    sh 'cp -r frontend/build/* ./nginx_data/html'
+>>>>>>> e2488d699373e4b4650d37cfe1c5e3bd4ad54843
                 }
             }
         } 
@@ -29,3 +35,8 @@ pipeline {
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> e2488d699373e4b4650d37cfe1c5e3bd4ad54843

@@ -5,20 +5,12 @@ services:
      ports:
       - "3004:80"
      volumes:
-<<<<<<< HEAD
       - ./checklist-data/html:/usr/share/nginx/html/checklistplus
-=======
-      - ./nginx_data/html:/usr/share/nginx/html/checklistplus
->>>>>>> e2488d699373e4b4650d37cfe1c5e3bd4ad54843
      depends_on:
       - checklistplus-php
       - checklistplus-mysql
      networks:
-<<<<<<< HEAD
-      - my-checklist-plus-network  
-=======
       - my-checklist-plus-network
->>>>>>> e2488d699373e4b4650d37cfe1c5e3bd4ad54843
       - jenkins-overlay
      deploy:
       replicas: 1
@@ -65,8 +57,5 @@ networks:
     driver: overlay
     attachable: true
   jenkins-overlay:
-<<<<<<< HEAD
     external: true  
-=======
-    external: true
->>>>>>> e2488d699373e4b4650d37cfe1c5e3bd4ad54843
+

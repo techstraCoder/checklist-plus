@@ -19,11 +19,14 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                   sh 'cp -r ./frontend/build/* .checklist-data/html'
-                   sh 'chown -R 1000:1000 .checklist-data/html' 
+                   sh 'mkdir -p checklist-data/html'
+                   sh 'ls -la checklist-data' 
+                   sh 'cp -r ./frontend/build/* checklist-data/html'
+                   sh 'chown -R 1000:1000 checklist-data/html' 
 
                 }
             }
         } 
     }
+
 }

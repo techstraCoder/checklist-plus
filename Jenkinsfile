@@ -19,10 +19,10 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                   sh 'mkdir -p checklist-data/html'
-                   sh 'ls -la checklist-data' 
-                   sh 'cp -r ./frontend/build/* C:\Users\BenCoder\Desktop\ben\checklist-plus\checklist-data\html'
-                   sh 'chown -R 1000:1000 C:\Users\BenCoder\Desktop\ben\checklist-plus\checklist-data\html' 
+                   // sh 'mkdir -p checklist-data/html'
+                   // sh 'ls -la checklist-data' 
+                   sh 'cp -r ./frontend/build/* C:/Users/BenCoder/Desktop/ben/checklist-plus/checklist-data/html'
+                  // sh 'chown -R 1000:1000 C:/Users/BenCoder/Desktop/ben/checklist-plus/checklist-data/html' 
 
                 }
             }
@@ -30,4 +30,5 @@ pipeline {
     }
 
 }
+
 

@@ -19,21 +19,12 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh 'ls -la /workspace/docker_compose/nginx_data/html/'  
-                  sh 'cp -r frontend/build/* /workspace/docker_compose/nginx_data/html/'
-                  sh 'chown -R 1000:1000 /workspace/docker_compose/nginx_data/html/'
+                  sh 'ls -la /usr/share/nginx/html/checklistplus'  
+                  sh 'cp -r frontend/build/* /usr/share/nginx/html/checklistplus'
+                  sh 'chown -R 1000:1000 /usr/share/nginx/html/checklistplus'
 
                 }
             }
         } 
     }
-
 }
-
-
-
-
-
-
-
-

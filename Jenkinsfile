@@ -19,8 +19,8 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh 'cp -r frontend/build/* /workspace/docker_compose/nginx_data/html/checklistplus'
-                  sh 'chown -R 1000:1000 /workspace/docker_compose/nginx_data/html/checklistplus'
+                  sh 'cp -r frontend/build/* /workspace/docker_compose/nginx_data/html/'
+                  sh 'chown -R 1000:1000 /workspace/docker_compose/nginx_data/html/'
 
                 }
             }
@@ -28,6 +28,7 @@ pipeline {
     }
 
 }
+
 
 
 

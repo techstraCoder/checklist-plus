@@ -24,9 +24,19 @@ pipeline {
                  sh 'chown -R 1000:1000 /usr/share/nginx/html/checklistplus'
                 }
             }
-        } 
+        }
+       stage('Deploy for backend') {
+           steps {
+              script {
+                  dir('checklist-backend') {
+                      sh 'cp -r checklist-backend/* /var/www/html/checklistplus/api/'
+                      sh 'chown -R 1000:1000  /var/www/html/checklistplus/api/'
+                  }
+              }   
+           }     
     }
 }
+
 
 
 

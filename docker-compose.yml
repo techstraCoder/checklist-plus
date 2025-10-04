@@ -5,7 +5,8 @@ services:
      ports:
       - "3004:80"
      volumes:
-      - ./nginx_data/html:/usr/share/nginx/html
+      - ./nginx_data/html:/usr/share/nginx/html/checklistplus
+      - ./nginx_data/html:/usr/local/share/workspace/docker_compose/nginx_data/checklist-data
      depends_on:
       - checklistplus-php
       - checklistplus-mysql

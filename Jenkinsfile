@@ -19,13 +19,15 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh 'mkdir -p nginx_data/html'  
-                  sh 'cp -r frontend/build/* nginx_data/html/'
+                  sh 'mkdir -p /usr/local/share/workspace/docker_compose/nginx_data/html'  
+                  sh 'cp -r frontend/build/* /usr/local/share/workspace/docker_compose/nginx_data/html'
+                  sh 'chown -R 1000:1000 /usr/local/share/workspace/docker_compose/nginx_data/html'  
                 }
             }
         } 
     }
 }
+
 
 
 

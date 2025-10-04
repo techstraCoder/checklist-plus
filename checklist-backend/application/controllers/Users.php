@@ -12,7 +12,7 @@ class Users extends CI_Controller {
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 		parent::__construct();
         $this->load->model('User_model','users');
-		//this is a controller test
+		//this is a jenkins ci/cd pipeline test
 		
 	}
 
@@ -1368,5 +1368,6 @@ foreach (json_decode(json_encode($body)) as $row=>$value) {
  
 
 }
+
 
 

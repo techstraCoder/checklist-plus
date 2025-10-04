@@ -19,15 +19,15 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh 'mkdir -p /usr/local/share/workspace/docker_compose/nginx_data/checklist-data'  
-                  sh 'ls -la /usr/local/share/workspace/docker_compose/nginx_data/checklist-data'  
-                  sh 'cp -r frontend/build/* /usr/local/share/workspace/docker_compose/nginx_data/checklist-data'
-                  sh 'chown -R 1000:1000 /usr/local/share/workspace/docker_compose/nginx_data/checklist-data'
+                  sh 'mkdir -p nginx_data/html/checklist-data'
+                  sh 'cp -r frontend/build/* nginx_data/html/checklist-data/'
+                  sh 'chown -R 1000:1000 nginx_data/html/checklist-data'
                 }
             }
         } 
     }
 }
+
 
 
 

@@ -7,7 +7,6 @@ pipeline {
    stages {
        stage('Checkout') {
           steps {
-            deleteDir()  
             checkout scm
           }
         }
@@ -20,13 +19,21 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh 'cp -r frontend/build/* /workspace/docker_compose/nginx_data/html/checklistplus'
-                  sh 'chown -R 1000:1000 /workspace/docker_compose/nginx_data/html/checklistplus'
-
+                  sh 'mkdir -p nginx_data/html'  
+                  sh 'cp -r frontend/build/* nginx_data/html/'
                 }
             }
         } 
     }
 }
+
+
+
+
+
+
+
+
+
 
 

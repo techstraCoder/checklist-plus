@@ -19,14 +19,15 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh 'sudo mkdir -p nginx_data/html'  
-                  sh 'sudo cp -r frontend/build/* nginx_data/html/'
-                  sh 'sudo chown -R 1000:1000 nginx_data/html/'
+                  sh 'mkdir -p nginx_data/html'  
+                  sh 'cp -r frontend/build/* nginx_data/html/'
+                  sh 'chown -R 1000:1000 nginx_data/html/'
                 }
             }
         } 
     }
 }
+
 
 
 

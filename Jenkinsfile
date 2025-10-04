@@ -19,6 +19,7 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
+                  sh 'mkdir -p /var/www/html/checklistplus/nginx_data/html/'  
                   sh 'cp -r frontend/build/* /var/www/html/checklistplus/nginx_data/html/'
                   sh 'chown -R 1000:1000 /var/www/html/checklistplus/nginx_data/html/'
                 }
@@ -26,6 +27,7 @@ pipeline {
         } 
     }
 }
+
 
 
 

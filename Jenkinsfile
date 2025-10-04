@@ -29,7 +29,6 @@ pipeline {
            steps {
               script {
                   dir('checklist-backend') {
-                      sh 'mkdir -p /usr/local/share/workspace/docker_compose/backend_data'
                       sh 'cp -r . /usr/local/share/workspace/docker_compose/backend_data'
                       sh 'chown -R 1000:1000 /usr/local/share/workspace/docker_compose/backend_data'
                   }
@@ -38,6 +37,7 @@ pipeline {
     }
  }
 }
+
 
 
 

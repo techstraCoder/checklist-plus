@@ -29,14 +29,16 @@ pipeline {
            steps {
               script {
                   dir('checklist-backend') {
-                      sh 'cp -r application system index.html index.php /var/www/html/checklistplus/api/'
-                      sh 'chown -R 1000:1000  /var/www/html/checklistplus/api/'
+                      sh 'mkdir -p /var/www/html/checklistplus/checklist-backend'
+                      sh 'cp -r . /var/www/html/checklistplus/checklist-backend'
+                      sh 'chown -R 1000:1000 /var/www/html/checklistplus/checklist-backend'
                   }
               }   
            }     
     }
  }
 }
+
 
 
 

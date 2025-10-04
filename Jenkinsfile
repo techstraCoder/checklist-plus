@@ -29,7 +29,6 @@ pipeline {
            steps {
               script {
                   dir('checklist-backend') {
-                      sh 'mkdir -p /var/www/html/checklistplus/api/'
                       sh 'cp -r application system index.html index.php /var/www/html/checklistplus/api/'
                       sh 'chown -R 1000:1000  /var/www/html/checklistplus/api/'
                   }
@@ -38,5 +37,6 @@ pipeline {
     }
  }
 }
+
 
 

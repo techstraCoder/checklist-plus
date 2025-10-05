@@ -45,6 +45,7 @@ services:
        restart: always 
        volumes:
         - ./checklist-backend:/var/www/html/checklistplus/api
+        - /usr/local/share/workspace/docker_compose/backend_data:/var/www/html/checklistplus/api
        depends_on:
         - checklistplus-mysql
        deploy:

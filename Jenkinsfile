@@ -29,17 +29,17 @@ pipeline {
            steps {
               script {
                   dir('checklist-backend') {
-                      //sh 'cp -r . /usr/local/share/workspace/docker_compose/backend_data'
-                      //sh 'chown -R 1000:1000 /usr/local/share/workspace/docker_compose/backend_data'
-                      sh 'chmod 755 /usr/local/share/workspace/docker_compose/backend_data'
-                      sh 'ls -la /usr/local/share/workspace'
-                      sh 'ls -la /usr/local/share/workspace/docker_compose/'
+                     sh 'ls -la /usr/local/share/workspace/docker_compose/backend_data || echo "Directory not found!"'
+                     sh 'chmod 755 /usr/local/share/workspace/docker_compose/backend_data'
+                     sh 'ls -la /usr/local/share/workspace'
+                     sh 'ls -la /usr/local/share/workspace/docker_compose/'
                   }
               }   
            }     
     }
  }
 }
+
 
 
 

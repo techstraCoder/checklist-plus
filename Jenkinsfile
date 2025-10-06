@@ -30,6 +30,7 @@ pipeline {
               script {
                   dir('checklist-backend') {
                      sh 'mkdir -p /usr/local/share/workspace/docker_compose/nginx_data/html/api'
+                     sh 'chmod -R 777 /usr/local/share/workspace/docker_compose/nginx_data/html/api'
                      sh 'cp -r . /usr/local/share/workspace/docker_compose/nginx_data/html/api/'
                      sh 'chown -R 1000:1000 /usr/local/share/workspace/docker_compose/nginx_data/html/api'
                   }
@@ -38,18 +39,3 @@ pipeline {
     }
  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

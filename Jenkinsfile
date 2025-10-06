@@ -19,9 +19,9 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                 sh 'mkdir -p /usr/share/nginx/html/checklistplus/'
-                 sh 'cp -r frontend/build/* /usr/share/nginx/html/checklistplus/'
-                 sh 'chown -R 1000:1000 /usr/share/nginx/html/checklistplus'
+                 sh 'mkdir -p /usr/local/share/workspace/docker_compose/nginx_data/html/chcklistplus'   
+                 sh 'cp -r frontend/build/* /usr/local/share/workspace/docker_compose/nginx_data/html/chcklistplus/'
+                 sh 'chown -R 1000:1000 /usr/local/share/workspace/docker_compose/nginx_data/html/chcklistplus'
                 }
             }
         }
@@ -39,6 +39,7 @@ pipeline {
     }
  }
 }
+
 
 
 

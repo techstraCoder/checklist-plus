@@ -109,7 +109,7 @@ function Login() {
                                 <Col md={5} sm={5} lg={5}>
                                     <div className="mt-1 ms-2"><input type="radio" name="login" value="2" onChange={CheckLoginModel} /><label className="form-check-label" >External Users</label></div>
                                 </Col>
-                                <Col md={5} sm={5} lg={5}><div className="mt-1 ms-2"><input type="radio" name="login" value="1" onChange={CheckLoginModel} defaultChecked /><label className="form-check-label" >SSO Login</label></div></Col>
+                                <Col md={5} sm={5} lg={5}><div className="mt-1 ms-2"><input type="radio" name="login" value="1" onChange={CheckLoginModel} defaultChecked /><label className="form-check-label" >SSO</label></div></Col>
                             </Row>
                             <Row className="mb-2">
                                         <Col md={6}>

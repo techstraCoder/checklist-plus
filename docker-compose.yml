@@ -5,7 +5,7 @@ services:
      ports:
       - "3004:80"
      volumes:
-      - /usr/local/share/workspace/docker_compose/nginx_data/html:/usr/share/nginx/html/checklistplus
+      - /usr/local/share/workspace/docker_compose/nginx_data/html/cheklistplus:/usr/share/nginx/html/checklistplus
      depends_on:
       - checklistplus-php
       - checklistplus-mysql
@@ -44,7 +44,7 @@ services:
         - 3005:9000
        restart: always 
        volumes:
-        - /usr/local/share/workspace/docker_compose/nginx_data/html/api:/var/www/html/checklistplus/api
+        - /usr/local/share/workspace/docker_compose/nginx_data/html/cheklistplus/api:/var/www/html/checklistplus/api
        depends_on:
         - checklistplus-mysql
        deploy:

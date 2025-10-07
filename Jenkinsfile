@@ -20,6 +20,7 @@ pipeline {
                         sh "npm run build"
                     }
                   sh 'mkdir -p /usr/share/nginx/html/checklistplus'
+                  sh 'chown -R 1000:1000 /usr/share/nginx/html/checklistplus'  
                   sh 'cp -r frontend/build/* /usr/share/nginx/html/checklistplus/'
                 
                 }
@@ -30,6 +31,7 @@ pipeline {
               script {
                   dir('checklist-backend') {
                      sh 'mkdir -p /usr/share/nginx/html/checklistplus/api'
+                     sh 'chown -R 1000:1000 /usr/share/nginx/html/checklistplus/api' 
                      sh 'cp -r . /usr/share/nginx/html/checklistplus/api/'
                   }
               }   
@@ -37,6 +39,7 @@ pipeline {
     }
  }
 }
+
 
 
 

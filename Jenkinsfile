@@ -18,15 +18,16 @@ pipeline {
                         sh "npm install"
                         sh "npm run build"
                     }
-                  sh 'sudo mkdir -p /usr/local/share/workspace/docker_compose/nginx_data/html/checklistplus'
-                  sh 'sudo chown -R 1000:1000 /usr/local/share/workspace'
-                  sh 'sudo chmod -R 755 /usr/local/share/workspace' 
+                  sh 'mkdir -p /usr/local/share/workspace/docker_compose/nginx_data/html/checklistplus'
+                  sh 'chown -R 1000:1000 /usr/local/share/workspace'
+                  sh 'chmod -R 755 /usr/local/share/workspace' 
                   sh 'cp -rv frontend/build/* /usr/local/share/workspace/docker_compose/nginx_data/html/checklistplus/'
                 }
             }
         }
  }
 }
+
 
 
 

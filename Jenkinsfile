@@ -25,8 +25,23 @@ pipeline {
                 }
             }
         }
+      stage('Build and Deploy backend') {
+            steps {
+                script {
+                    // Build and push frontend Docker image
+                    dir('chcklist-backend') {
+                       sh 'mkdir -p /usr/local/share/workspace/docker_compose/nginx_data/html/checklistplus/api'
+                       sh 'chown -R 1000:1000 /usr/local/share/workspace'
+                       sh 'chmod -R 755 /usr/local/share/workspace' 
+                       sh 'sh cp -rv . /usr/local/share/workspace/docker_compose/nginx_data/html/checklistplus/api/'
+                    }
+                 
+                }
+            }
+        } 
  }
 }
+
 
 
 

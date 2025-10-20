@@ -7,9 +7,14 @@ use PHPMailer\PHPMailer\Exception;
 class Users extends CI_Controller {
 	function __construct(){
 		header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Headers: *");
+        // header("Access-Control-Allow-Headers: *");
+		header("Access-Control-Allow-Headers: Authorization, Content-Type, X-Requested-With, Accept, Origin");
         header('Content-type: application/json');
         header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+		if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+		    header("HTTP/1.1 200 OK");
+		    exit();
+		}
 		parent::__construct();
         $this->load->model('User_model','users');
 		echo '<pre>';print_r($_SERVER);
@@ -1369,6 +1374,7 @@ foreach (json_decode(json_encode($body)) as $row=>$value) {
  
 
 }
+
 
 
 
